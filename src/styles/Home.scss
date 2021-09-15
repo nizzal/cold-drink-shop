@@ -1,0 +1,79 @@
+@import 'Variables.scss';
+
+.home__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  // background-color: beige;
+  .company-card__list {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    .company-card {
+      height: 290px;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 15px;
+      position: relative;
+      .company__card-links {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: wheat;
+        left: -100%;
+        top: 0;
+        transition: all 0.3s ease-in;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        a {
+          margin: 1rem 0;
+          background-color: $red;
+          color: $text-white;
+          width: 120px;
+          height: 40px;
+          display: grid;
+          place-items: center;
+          text-decoration: none;
+        }
+      }
+      &:hover {
+        img {
+          filter: none;
+        }
+        .company__card-links  {
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+.hero__container {
+  background-image: url('../img/hero-bg.png');
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  h1 {
+    width: 45ch;
+    font-weight: 900;
+    text-align: center;
+    line-height: 2.5rem;
+  }
+  button {
+    background-color: $red;
+    border: none;
+    color: $text-white;
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
+

@@ -1,0 +1,47 @@
+@import './Variables.scss';
+
+.products-detail__container {
+  display: block;
+  max-width: 1440px;
+  margin: 1rem auto;
+  .product-detail__main {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    .product__image {
+      background-color: aliceblue;
+      display: block;
+      width: 550px;
+      height: 550px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+    }
+    .products-detail__section{
+      margin-left: 1rem;
+      .product-category {
+        margin-top: 0.5rem;
+      }
+      .product-description{
+        margin-top: 1rem;
+        font-size: 1.1rem;
+      }
+      .product-price {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
+      }
+      .add-cart {
+        background-color: $red;
+        color: $text-white;
+        text-decoration: none;
+        font-weight: 600;
+        display: block;
+        font-size: 1.1rem;
+        padding: 0.6rem 1.4rem;
+        border: none;
+        border-radius: 10px;
+      }
+    }
+  }
+}

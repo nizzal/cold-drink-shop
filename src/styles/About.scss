@@ -1,0 +1,17 @@
+.about-us__container {
+  .about-us__bg {
+    height: 334px;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-image: url('../img/bg2.png');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    max-width: 1440px;
+    margin: 1rem auto;
+  }
+}

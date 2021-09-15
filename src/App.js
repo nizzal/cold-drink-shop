@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./components/NotFound";
+import ProductsDetail from "./components/ProductsDetail";
+import Cart from "./components/Cart";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	let localCart =
+		localStorage.getItem("cart") == null
+			? []
+			: JSON.parse(localStorage.getItem("cart"));
+	const [cart, setCart] = useState(localCart);
+	console.log(cart);
+
+	return (
+		<Router>
+			<div className="App">
+				<Navbar cart={cart} />
+				<div className="main__container">
+					<Switch>
+						{/* <Route path="/" exact component={Home}></Route> */}
+						<Route
+							path="/"
+							exact
+							render={() => (
+								<Home setCart={setCart} cart={cart} />
+							)}
+						></Route>
+						<Route path="/about" component={About}></Route>
+						<Route path="/contact" component={Contact}></Route>
+						<Route path="/cart" component={Cart}></Route>
+						<Route
+							path="/products/:id"
+							component={ProductsDetail}
+						/>
+						{/* <Route path="/products/:name" component={} /> */}
+						<Route path="*" component={NotFound} />
+					</Switch>
+				</div>
+			</div>
+		</Router>
+	);
 }
 
 export default App;

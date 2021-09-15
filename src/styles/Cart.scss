@@ -1,0 +1,27 @@
+@import './Variables.scss';
+
+.cart__list {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .product__card-cart {
+        background-color: aliceblue;
+        width: 650px;
+        height: 300px;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        .product__image {
+            width: 400px;
+            background-color: wheat;
+            display: grid;
+            place-items: center;
+        }
+        .product__details {
+
+        }
+    }
+}
