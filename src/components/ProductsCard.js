@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import productIMG from "../img/product1.png";
 import "../styles/ProductsCard.scss";
 import data from "./ProductsData";
+import { CartContext } from "../context/CartContext";
 
-const ProductsCard = ({ type, more, setCart, cart }) => {
+const ProductsCard = ({ type, more }) => {
 	const [isAvailable, setIsAvailable] = useState(false);
+
+	const [cart, setCart] = useContext(CartContext);
 
 	useEffect(() => {
 		let categoryCheck = data.filter((item) => {

@@ -7,43 +7,31 @@ import Contact from "./pages/Contact";
 import NotFound from "./components/NotFound";
 import ProductsDetail from "./components/ProductsDetail";
 import Cart from "./components/Cart";
-import { useState } from "react";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
-	let localCart =
-		localStorage.getItem("cart") == null
-			? []
-			: JSON.parse(localStorage.getItem("cart"));
-	const [cart, setCart] = useState(localCart);
-	console.log(cart);
-
 	return (
-		<Router>
-			<div className="App">
-				<Navbar cart={cart} />
-				<div className="main__container">
-					<Switch>
-						{/* <Route path="/" exact component={Home}></Route> */}
-						<Route
-							path="/"
-							exact
-							render={() => (
-								<Home setCart={setCart} cart={cart} />
-							)}
-						></Route>
-						<Route path="/about" component={About}></Route>
-						<Route path="/contact" component={Contact}></Route>
-						<Route path="/cart" component={Cart}></Route>
-						<Route
-							path="/products/:id"
-							component={ProductsDetail}
-						/>
-						{/* <Route path="/products/:name" component={} /> */}
-						<Route path="*" component={NotFound} />
-					</Switch>
+		<CartProvider>
+			<Router>
+				<div className="App">
+					<Navbar />
+					<div className="main__container">
+						<Switch>
+							<Route path="/" exact component={Home}></Route>
+							<Route path="/about" component={About}></Route>
+							<Route path="/contact" component={Contact}></Route>
+							<Route path="/cart" component={Cart}></Route>
+							<Route
+								path="/products/:id"
+								component={ProductsDetail}
+							/>
+							{/* <Route path="/products/:name" component={} /> */}
+							<Route path="*" component={NotFound} />
+						</Switch>
+					</div>
 				</div>
-			</div>
-		</Router>
+			</Router>
+		</CartProvider>
 	);
 }
 
