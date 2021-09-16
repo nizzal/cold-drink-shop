@@ -34,18 +34,8 @@ nav {
       text-decoration: none;
       color: #000;
       position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        height: 2px;
-        width: 0%;
-        display: block;
-        background: $red;
-        border-radius: 1px;
-        transition: all 0.3s ease-in;
-      }
-      &:hover::after {
-        width: 100%;
+      &.active {
+        border-bottom: 3px solid $red;
       }
       
     }

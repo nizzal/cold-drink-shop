@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import "../styles/About.scss";
 
 const About = () => {
+	useEffect(() => {
+		document.title = "About Us";
+	});
 	return (
 		<div className="about-us__container">
 			<h1 className="about-us__bg">About Us</h1>

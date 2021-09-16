@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 import ProductsCard from "./ProductsCard";
 import "../styles/ProductsMenu.scss";
 
 const ProductsMenu = () => {
-	const [drinkType, setDrinkType] = useState("wine");
+	const { drinkValue } = useContext(CartContext);
+	const [drinkType, setDrinkType] = drinkValue;
+
+	// const [drinkType, setDrinkType] = useState("cold-drinks");
+
 	const [more, setMore] = useState(6);
 
 	const loadMoreItems = () => {

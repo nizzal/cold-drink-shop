@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../styles/Navbar.scss";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 
 const Navbar = () => {
-	const [cart] = useContext(CartContext);
+	const { cartValue } = useContext(CartContext);
+	const [cart] = cartValue;
 
 	return (
 		<header>
@@ -14,16 +15,22 @@ const Navbar = () => {
 				</Link>
 				<ul className="nav__links">
 					<li>
-						<Link to="/">Home</Link>
+						<NavLink exact activeClassName="active" to="/">
+							Home
+						</NavLink>
 					</li>
 					<li>
-						<Link to="/contact">Contact</Link>
+						<NavLink activeClassName="active" to="/contact">
+							Contact
+						</NavLink>
 					</li>
 					<li>
-						<Link to="/about">About</Link>
+						<NavLink activeClassName="active" to="/about">
+							About
+						</NavLink>
 					</li>
 					<li>
-						<Link to="/cart">
+						<NavLink activeClassName="active" to="/cart">
 							<i className="fas fa-shopping-cart"></i>
 							<span>
 								&nbsp;Cart{" "}
@@ -31,7 +38,7 @@ const Navbar = () => {
 									{cart.length}
 								</sup>
 							</span>
-						</Link>
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

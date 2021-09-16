@@ -1,7 +1,11 @@
 import "../styles/Contact.scss";
 import contactImage from "../img/contact_image.png";
+import { useEffect } from "react";
 
 const Contact = () => {
+	useEffect(() => {
+		document.title = "Contact Us";
+	});
 	return (
 		<div className="contact__container">
 			<h1>Contact Us</h1>

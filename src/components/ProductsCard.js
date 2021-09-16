@@ -8,7 +8,8 @@ import { CartContext } from "../context/CartContext";
 const ProductsCard = ({ type, more }) => {
 	const [isAvailable, setIsAvailable] = useState(false);
 
-	const [cart, setCart] = useContext(CartContext);
+	const { cartValue } = useContext(CartContext);
+	const [cart, setCart] = cartValue;
 
 	useEffect(() => {
 		let categoryCheck = data.filter((item) => {
@@ -24,7 +25,7 @@ const ProductsCard = ({ type, more }) => {
 
 	const addToCart = (el) => {
 		let productExist = cart.find((item) => item.id === el.id);
-		console.log(productExist);
+		// console.log(productExist);
 		productExist
 			? setCart(
 					cart.map((item) =>

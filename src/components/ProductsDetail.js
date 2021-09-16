@@ -9,7 +9,7 @@ const ProductsDetail = () => {
 	let currentProduct = [];
 	currentProduct = data.filter((item) => item.id === parseInt(id));
 	// data.filter(item => currentProduct.push(item));
-	console.log(currentProduct);
+	// console.log(currentProduct);
 	return (
 		<div className="products-detail__container">
 			{currentProduct[0] !== undefined ? (

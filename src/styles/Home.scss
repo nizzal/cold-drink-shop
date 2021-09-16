@@ -20,7 +20,7 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background-color: wheat;
+        background-color: $text-dark;
         left: -100%;
         top: 0;
         transition: all 0.3s ease-in;
@@ -28,6 +28,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        color: $text-white;
         a {
           margin: 1rem 0;
           background-color: $red;
@@ -50,10 +51,94 @@
       }
     }
   }
+  .subscribe__container{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(261.49deg, rgba(249, 246, 244, 0.58) 4.58%, rgba(186, 152, 130, 0.3) 79.44%);
+    padding: 2rem;
+    img {
+      height: 220px;
+    }
+    .subscribe__details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        margin-top: 1rem;
+        color: $red;
+      }
+      p {
+        line-height: 1.4rem;
+        width: 40ch;
+        text-align: center;
+        align-items: center;
+        margin: 1rem 0;
+      }
+      form {
+        display: flex;
+        width: 380px;
+        border-radius: 10px 0 0 10px;
+        input {
+          border-radius: 10px 0 0 10px;
+          width: 100%;
+          height: 40px;
+          flex-grow: 2;
+          border: none;
+          outline: none;
+          padding: 0 0.5rem;
+          font-size: 1rem;
+          &:focus {
+            border: 2px solid $red;
+          }
+          &::placeholder {
+            color: $text-dark;
+            opacity: 0.4;
+          }
+        }
+        button {
+          width: 140px;
+          height: 40px;
+          border-radius: 0 10px 10px 0;
+          border: none;
+          background-color: $red;
+          color: #fff;
+          font-size: 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem 0rem;
+    position: relative;
+    h2 {
+      margin: 0.5rem 0;
+    }
+    ul {
+      list-style: none;
+      margin-bottom: 1.3rem;
+      li {
+        a {
+          text-decoration: none;
+          color: $text-dark;
+          font-size: 1.1rem;
+          line-height: 2rem;
+        }
+      }
+    }
+    .copyright_text {
+      position: absolute;
+      bottom: 0px;
+      font-weight: 600;
+    }
+  }
 }
 
 .hero__container {
-  background-image: url('../img/hero-bg.png');
+  background: linear-gradient(261.49deg, rgba(249, 246, 244, 0.58) 4.58%, rgba(186, 152, 130, 0.3) 79.44%), url('../img/hero-bg.png');
   height: 340px;
   display: flex;
   flex-direction: column;
