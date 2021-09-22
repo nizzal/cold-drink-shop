@@ -1,37 +1,64 @@
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/Cart.scss";
+import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-	let cartData =
-		localStorage.getItem("cart") == null
-			? []
-			: JSON.parse(localStorage.getItem("cart"));
-	console.log(cartData.length);
+	// let [cartData, setCartData] = useState(
+	// 	localStorage.getItem("cart") == null
+	// 		? []
+	// 		: JSON.parse(localStorage.getItem("cart"))
+	// );
+
+	const { cartValue } = useContext(CartContext);
+
+	const [cart, setCart] = cartValue;
+	// console.log(cart);
+
 	let totalPrice =
-		cartData.length === 0
-			? 0
-			: cartData.map((item) => item.price * item.quantity);
+		cart.length === 0 ? 0 : cart.map((item) => item.price * item.quantity);
 	totalPrice = totalPrice === 0 ? 0 : totalPrice.reduce((a, b) => a + b, 0);
-	console.log(totalPrice);
+
+	const revmoveProductHandler = (item) => {
+		console.log(item);
+		cart.indexOf(item);
+		const newData = cart.filter((el) => el.id !== item);
+		// console.log(newData);
+		setCart(cart.filter((el) => el.id !== item));
+		localStorage.setItem("cart", JSON.stringify(newData));
+	};
 
 	useEffect(() => {
-		document.title = `Cart (${cartData.length})`;
-	});
+		document.title = `Cart (${cart.length})`;
+	}, [cart]);
+
+	const quantityHandler = (e, item) => {
+		// console.log(e.target.value);
+		// console.log(item);
+		// console.log(...cart);
+		const updatedQuantity = cart.map((cartItem) =>
+			cartItem.id === item.id
+				? { ...item, quantity: e.target.value }
+				: item
+		);
+		localStorage.setItem("cart", JSON.stringify(updatedQuantity));
+		// testCase.quantity = e.target.value;
+		// console.log(cartItem);
+
+		console.log(updatedQuantity);
+	};
 
 	return (
 		<>
 			<h1 style={{ textAlign: "center" }}>Cart Details</h1>
-			<h2 style={{ textAlign: "center" }}>
-				Toal Items: {cartData.length}
-			</h2>
+			<h2 style={{ textAlign: "center" }}>Toal Items: {cart.length}</h2>
 			<main>
 				<div className="cart__list">
-					{cartData.length >= 1 ? (
-						cartData.map((item) => {
+					{cart.length >= 1 ? (
+						cart.map((item) => {
 							return (
 								<div
 									className="product__card-cart"
-									key={cartData.indexOf(item)}
+									key={cart.indexOf(item)}
 								>
 									<div className="product__image">
 										<img
@@ -40,9 +67,32 @@ const Cart = () => {
 										/>
 									</div>
 									<div className="product__details">
-										<p>{item.name}</p>
-										<p>Rs.&nbsp;{item.price}</p>
-										<p>Quantity:&nbsp;{item.quantity}</p>
+										<p className="product__details-title">
+											{item.name}
+										</p>
+										<p className="product__details-price">
+											Rs.&nbsp;{item.price}
+										</p>
+										<p className="product__details-quantity">
+											Quantity:&nbsp;
+											<input
+												type="number"
+												min="0"
+												max="99"
+												defaultValue={item.quantity}
+												onChange={(e) =>
+													quantityHandler(e, item)
+												}
+											/>
+										</p>
+										<button
+											className="removeItemBtn"
+											onClick={() =>
+												revmoveProductHandler(item)
+											}
+										>
+											Remove
+										</button>
 									</div>
 								</div>
 							);
@@ -54,7 +104,7 @@ const Cart = () => {
 				<div className="cart__details-card">
 					<h3>Order Details</h3>
 					<hr />
-					<p>Total Items:&nbsp;{cartData.length}</p>
+					<p>Total Items:&nbsp;{cart.length}</p>
 					<label htmlFor="Coupen">Coupen Code</label>
 					<input
 						type="text"
