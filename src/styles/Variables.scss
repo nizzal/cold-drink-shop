@@ -1,4 +1,11 @@
-$red: #EC0101;
+$red: #ec0101;
 $text-dark: #222831;
 $text-white: #fff;
 $card-dark: #222831;
+
+@mixin flex($direction, $justify) {
+	display: flex;
+	justify-content: $justify;
+	align-items: center;
+	flex-direction: $direction;
+}

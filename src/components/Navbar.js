@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import "../styles/Navbar.scss";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
+import NavbarSearch from "./NavbarSearch";
 
 const Navbar = () => {
 	const { cartValue } = useContext(CartContext);
@@ -10,10 +11,12 @@ const Navbar = () => {
 	return (
 		<header>
 			<nav>
-				<Link to="/">
-					<h2 className="logo__title">Cold Center</h2>
-				</Link>
 				<ul className="nav__links">
+					<li>
+						<Link to="/">
+							<h2 className="logo__title">Cold Center</h2>
+						</Link>
+					</li>
 					<li>
 						<NavLink exact activeClassName="active" to="/">
 							Home
@@ -29,16 +32,19 @@ const Navbar = () => {
 							About
 						</NavLink>
 					</li>
+				</ul>
+				<ul className="nav__search">
 					<li>
-						<NavLink activeClassName="active" to="/cart">
+						<NavbarSearch />
+					</li>
+					<li>
+						<Link to="/cart">
 							<i className="fas fa-shopping-cart"></i>
-							<span>
-								&nbsp;Cart{" "}
-								<sup style={{ color: "red", fontWeight: 600 }}>
-									{cart.length}
-								</sup>
-							</span>
-						</NavLink>
+							&nbsp;Cart
+							<sup>
+								<span>{cart.length}</span>
+							</sup>
+						</Link>
 					</li>
 				</ul>
 			</nav>

@@ -1,14 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import "../styles/Cart.scss";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-	// let [cartData, setCartData] = useState(
-	// 	localStorage.getItem("cart") == null
-	// 		? []
-	// 		: JSON.parse(localStorage.getItem("cart"))
-	// );
-
 	const { cartValue } = useContext(CartContext);
 
 	const [cart, setCart] = cartValue;
@@ -32,17 +26,12 @@ const Cart = () => {
 	}, [cart]);
 
 	const quantityHandler = (e, item) => {
-		// console.log(e.target.value);
-		// console.log(item);
-		// console.log(...cart);
 		const updatedQuantity = cart.map((cartItem) =>
 			cartItem.id === item.id
 				? { ...item, quantity: e.target.value }
 				: item
 		);
 		localStorage.setItem("cart", JSON.stringify(updatedQuantity));
-		// testCase.quantity = e.target.value;
-		// console.log(cartItem);
 
 		console.log(updatedQuantity);
 	};
