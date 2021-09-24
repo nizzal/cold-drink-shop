@@ -4,21 +4,18 @@ import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
 	const { cartValue } = useContext(CartContext);
-
 	const [cart, setCart] = cartValue;
-	// console.log(cart);
 
 	let totalPrice =
 		cart.length === 0 ? 0 : cart.map((item) => item.price * item.quantity);
 	totalPrice = totalPrice === 0 ? 0 : totalPrice.reduce((a, b) => a + b, 0);
 
 	const revmoveProductHandler = (item) => {
-		console.log(item);
-		cart.indexOf(item);
-		const newData = cart.filter((el) => el.id !== item);
-		// console.log(newData);
-		setCart(cart.filter((el) => el.id !== item));
-		localStorage.setItem("cart", JSON.stringify(newData));
+		setCart((prevCart) => {
+			const newCart = prevCart.filter((el) => el !== item);
+			localStorage.setItem("cart", JSON.stringify(newCart));
+			return newCart;
+		});
 	};
 
 	useEffect(() => {
@@ -28,12 +25,11 @@ const Cart = () => {
 	const quantityHandler = (e, item) => {
 		const updatedQuantity = cart.map((cartItem) =>
 			cartItem.id === item.id
-				? { ...item, quantity: e.target.value }
-				: item
+				? { ...cartItem, quantity: e.target.value }
+				: cartItem
 		);
+		setCart(updatedQuantity);
 		localStorage.setItem("cart", JSON.stringify(updatedQuantity));
-
-		console.log(updatedQuantity);
 	};
 
 	return (
@@ -47,7 +43,7 @@ const Cart = () => {
 							return (
 								<div
 									className="product__card-cart"
-									key={cart.indexOf(item)}
+									key={item.id}
 								>
 									<div className="product__image">
 										<img
@@ -66,9 +62,9 @@ const Cart = () => {
 											Quantity:&nbsp;
 											<input
 												type="number"
-												min="0"
+												min="1"
 												max="99"
-												defaultValue={item.quantity}
+												value={item.quantity}
 												onChange={(e) =>
 													quantityHandler(e, item)
 												}
