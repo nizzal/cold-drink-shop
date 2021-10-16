@@ -85,3 +85,12 @@ nav {
 		}
 	}
 }
+
+@media (max-width: 720px) {
+	.nav__links {
+		display: none;
+	}
+	.nav__search li:first-child {
+		display: none;
+	}
+}

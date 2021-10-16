@@ -1,45 +1,48 @@
-@import 'Variables.scss';
+@import "Variables.scss";
 
 .products__menu {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  .products__link {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
-    li {
-      padding: 0.2rem;
-      margin: 0 0.8rem;
-      button {
-        background-color: transparent;
-        border: none;
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        color: $text-dark;
-      }
-      opacity: 0.5;
-    }
-    .cold-drinks,
-    .beer,
-    .wine{
-      opacity: 1;
-    }
-  }
-  .load-more__btn {
-    background-color: $red;
-    width: 140px;
-    height: 40px;
-    color: $text-white;
-    border: none;
-    cursor: pointer;
-    margin: 0 auto;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    position: relative;
-  }
-  
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 1rem;
+	.products__link {
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin: 1rem 0;
+		li {
+			padding: 0.2rem;
+			margin: 0 0.8rem;
+			button {
+				background-color: transparent;
+				border: none;
+				font-size: 1.1rem;
+				font-weight: 600;
+				cursor: pointer;
+				color: $text-dark;
+			}
+			opacity: 0.5;
+		}
+		.cold-drinks,
+		.beer,
+		.wine {
+			opacity: 1;
+		}
+	}
+	.load-more__btn {
+		background-color: $red;
+		width: 140px;
+		height: 40px;
+		color: $text-white;
+		border: none;
+		cursor: pointer;
+		margin: 0 auto;
+		font-size: 1.1rem;
+		position: relative;
+	}
+	@media (max-width: 450px) {
+		padding: 0.5rem;
+	}
 }

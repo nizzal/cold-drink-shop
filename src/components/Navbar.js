@@ -11,12 +11,12 @@ const Navbar = () => {
 	return (
 		<header>
 			<nav>
+				<div>
+					<Link to="/">
+						<h2 className="logo__title">Cold Center</h2>
+					</Link>
+				</div>
 				<ul className="nav__links">
-					<li>
-						<Link to="/">
-							<h2 className="logo__title">Cold Center</h2>
-						</Link>
-					</li>
 					<li>
 						<NavLink exact activeClassName="active" to="/">
 							Home

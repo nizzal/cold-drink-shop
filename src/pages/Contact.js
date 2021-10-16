@@ -12,13 +12,16 @@ const Contact = () => {
 			<div className="form__container">
 				<img src={contactImage} alt="" />
 				<form action="">
-					{/* <label htmlFor="">Full Name:</label><br /> */}
+					<label htmlFor="">Full Name:</label>
+					<br />
 					<input placeholder="John Doe" type="text" />
 					<br />
-					{/* <label htmlFor="">Email:</label><br /> */}
+					<label htmlFor="">Email:</label>
+					<br />
 					<input placeholder="john@gmail.com" type="email" />
 					<br />
-					{/* <label htmlFor="">Message:</label><br /> */}
+					<label htmlFor="">Message:</label>
+					<br />
 					<textarea placeholder="message"></textarea>
 					<input type="submit" />
 				</form>

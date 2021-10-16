@@ -1,10 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/Cart.scss";
 import { CartContext } from "../context/CartContext";
+import Checkout from "../pages/Checkout";
 
 const Cart = () => {
 	const { cartValue } = useContext(CartContext);
 	const [cart, setCart] = cartValue;
+	const [openModal, setOpenModal] = useState(false);
 
 	let totalPrice =
 		cart.length === 0 ? 0 : cart.map((item) => item.price * item.quantity);
@@ -30,6 +32,10 @@ const Cart = () => {
 		);
 		setCart(updatedQuantity);
 		localStorage.setItem("cart", JSON.stringify(updatedQuantity));
+	};
+
+	const modalHandler = () => {
+		setOpenModal(!openModal);
 	};
 
 	return (
@@ -101,8 +107,11 @@ const Cart = () => {
 					<p>
 						<b>Total:&nbsp;Rs.{totalPrice}</b>
 					</p>
-					<button>Checkout</button>
+					<button onClick={modalHandler}>Checkout</button>
 				</div>
+				{openModal && (
+					<Checkout setModal={setOpenModal} modal={openModal} />
+				)}
 			</main>
 		</>
 	);

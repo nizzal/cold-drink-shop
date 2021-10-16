@@ -1,0 +1,52 @@
+.shipping-form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(61, 58, 58, 0.795);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	form {
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+		background-color: antiquewhite;
+		padding: 1rem;
+		label {
+			margin: 0.5rem 0;
+		}
+		input {
+			height: 40px;
+		}
+		select {
+			height: 40px;
+		}
+		button {
+			margin: 1rem 0;
+			font-weight: bold;
+			background-color: red;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			width: 160px;
+			height: 40px;
+		}
+		.payment-method--selection {
+			margin-top: 5px;
+			label,
+			input {
+				float: none; /* if you had floats before? otherwise inline-block will behave differently */
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 0.4rem;
+			}
+		}
+	}
+	.closeBtn {
+		position: absolute;
+		top: 20px;
+		right: 10px;
+	}
+}

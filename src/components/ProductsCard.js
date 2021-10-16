@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import productIMG from "../img/product1.png";
+// import productIMG from "../img/product1.png";
 import "../styles/ProductsCard.scss";
 import data from "./ProductsData";
 import { CartContext } from "../context/CartContext";
@@ -52,7 +52,7 @@ const ProductsCard = ({ type, more }) => {
 							el.category === type && (
 								<div className="product__card" key={el.id}>
 									<div className="product__image">
-										<img src={productIMG} alt="" />
+										<img src={el.images} alt="" />
 									</div>
 									<Link
 										to={`/products/${el.id}`}
@@ -60,9 +60,9 @@ const ProductsCard = ({ type, more }) => {
 									>
 										<p>{el.name}</p>
 										<p>Rs.{el.price}</p>
-										{/* <Link to={`/products/${el.id}`}>View More</Link> */}
 									</Link>
 									<button onClick={() => addToCart(el)}>
+										<span>Add to cart</span>
 										<i className="fas fa-cart-plus"></i>
 									</button>
 								</div>

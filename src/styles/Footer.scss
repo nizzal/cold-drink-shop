@@ -1,0 +1,32 @@
+@import "./Variables";
+
+footer {
+	display: flex;
+	justify-content: space-around;
+	padding: 1.5rem 0rem;
+	position: relative;
+	h2 {
+		margin: 0.5rem 0;
+	}
+	ul {
+		list-style: none;
+		margin-bottom: 1.3rem;
+		li {
+			a {
+				text-decoration: none;
+				color: $text-dark;
+				font-size: 1.1rem;
+				line-height: 2rem;
+			}
+		}
+	}
+	.copyright_text {
+		position: absolute;
+		bottom: 0px;
+		font-weight: 600;
+	}
+	@media (max-width: 720px) {
+		flex-direction: column;
+		padding-left: 10px;
+	}
+}

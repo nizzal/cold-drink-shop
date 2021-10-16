@@ -1,0 +1,49 @@
+@import "./Variables.scss";
+
+.company-card__list {
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 1rem;
+	.company-card {
+		height: 290px;
+		cursor: pointer;
+		overflow: hidden;
+		border-radius: 15px;
+		position: relative;
+		.company__card-links {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: $text-dark;
+			left: -100%;
+			top: 0;
+			transition: all 0.3s ease-in;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: $text-white;
+			a {
+				margin: 1rem 0;
+				background-color: $red;
+				color: $text-white;
+				width: 120px;
+				height: 40px;
+				display: grid;
+				place-items: center;
+				text-decoration: none;
+			}
+		}
+		&:hover {
+			img {
+				filter: none;
+			}
+			.company__card-links {
+				left: 0;
+				top: 0;
+			}
+		}
+	}
+}

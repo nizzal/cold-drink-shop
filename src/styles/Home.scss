@@ -1,164 +1,45 @@
-@import 'Variables.scss';
+@import "Variables.scss";
 
 .home__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  // background-color: beige;
-  .company-card__list {
-    margin: 1rem 0;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-    .company-card {
-      height: 290px;
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 15px;
-      position: relative;
-      .company__card-links {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: $text-dark;
-        left: -100%;
-        top: 0;
-        transition: all 0.3s ease-in;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: $text-white;
-        a {
-          margin: 1rem 0;
-          background-color: $red;
-          color: $text-white;
-          width: 120px;
-          height: 40px;
-          display: grid;
-          place-items: center;
-          text-decoration: none;
-        }
-      }
-      &:hover {
-        img {
-          filter: none;
-        }
-        .company__card-links  {
-          left: 0;
-          top: 0;
-        }
-      }
-    }
-  }
-  .subscribe__container{
-    margin: 1rem 0;
-    display: flex;
-    justify-content: space-around;
-    background: linear-gradient(261.49deg, rgba(249, 246, 244, 0.58) 4.58%, rgba(186, 152, 130, 0.3) 79.44%);
-    padding: 2rem;
-    img {
-      height: 220px;
-    }
-    .subscribe__details {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      h1 {
-        margin-top: 1rem;
-        color: $red;
-      }
-      p {
-        line-height: 1.4rem;
-        width: 40ch;
-        text-align: center;
-        align-items: center;
-        margin: 1rem 0;
-      }
-      form {
-        display: flex;
-        width: 380px;
-        border-radius: 10px 0 0 10px;
-        input {
-          border-radius: 10px 0 0 10px;
-          width: 100%;
-          height: 40px;
-          flex-grow: 2;
-          border: none;
-          outline: none;
-          padding: 0 0.5rem;
-          font-size: 1rem;
-          &:focus {
-            border: 2px solid $red;
-          }
-          &::placeholder {
-            color: $text-dark;
-            opacity: 0.4;
-          }
-        }
-        button {
-          width: 140px;
-          height: 40px;
-          border-radius: 0 10px 10px 0;
-          border: none;
-          background-color: $red;
-          color: #fff;
-          font-size: 1rem;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-  footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 1.5rem 0rem;
-    position: relative;
-    h2 {
-      margin: 0.5rem 0;
-    }
-    ul {
-      list-style: none;
-      margin-bottom: 1.3rem;
-      li {
-        a {
-          text-decoration: none;
-          color: $text-dark;
-          font-size: 1.1rem;
-          line-height: 2rem;
-        }
-      }
-    }
-    .copyright_text {
-      position: absolute;
-      bottom: 0px;
-      font-weight: 600;
-    }
-  }
+	max-width: 1440px;
+	margin: 0 auto;
+	// background-color: beige;
 }
 
 .hero__container {
-  background: linear-gradient(261.49deg, rgba(249, 246, 244, 0.58) 4.58%, rgba(186, 152, 130, 0.3) 79.44%), url('../img/hero-bg.png');
-  height: 340px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  h1 {
-    width: 45ch;
-    font-weight: 900;
-    text-align: center;
-    line-height: 2.5rem;
-  }
-  button {
-    background-color: $red;
-    border: none;
-    color: $text-white;
-    padding: 0.8rem 1.4rem;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-  }
+	background: linear-gradient(
+			261.49deg,
+			rgba(249, 246, 244, 0.58) 4.58%,
+			rgba(186, 152, 130, 0.3) 79.44%
+		),
+		url("../img/hero-bg.png");
+	height: 340px;
+	max-width: 1440px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	h1 {
+		max-width: 45ch;
+		font-weight: 900;
+		text-align: center;
+		line-height: 2.5rem;
+	}
+	button {
+		background-color: $red;
+		border: none;
+		color: $text-white;
+		padding: 0.8rem 1.4rem;
+		cursor: pointer;
+		font-weight: 600;
+	}
 }
 
+@media (max-width: 720px) {
+	.hero__container {
+		h1 {
+			font-size: 1.6rem;
+		}
+	}
+}
