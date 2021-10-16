@@ -1,4 +1,3 @@
-import ConfirmationModal from "../components/ConfirmationModal";
 import Countries from "../data/countries";
 import "../styles/Checkout.scss";
 
