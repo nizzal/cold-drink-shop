@@ -24,6 +24,8 @@ footer {
 		position: absolute;
 		bottom: 0px;
 		font-weight: 600;
+		display: block;
+		text-align: center;
 	}
 	@media (max-width: 720px) {
 		flex-direction: column;

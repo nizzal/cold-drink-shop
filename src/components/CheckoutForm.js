@@ -1,7 +1,7 @@
 import Countries from "../data/countries";
 import "../styles/Checkout.scss";
 
-const Checkout = ({ modal, setModal }) => {
+const CheckoutForm = () => {
 	return (
 		<>
 			<div className="shipping-form">
@@ -30,12 +30,9 @@ const Checkout = ({ modal, setModal }) => {
 					</div>
 					<button type="submit">Proceed</button>
 				</form>
-				<button className="closeBtn" onClick={() => setModal(!modal)}>
-					Close
-				</button>
 			</div>
 		</>
 	);
 };
 
-export default Checkout;
+export default CheckoutForm;

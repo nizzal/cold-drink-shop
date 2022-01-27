@@ -7,12 +7,15 @@
 }
 
 .hero__container {
+	// width: 100%;
 	background: linear-gradient(
 			261.49deg,
 			rgba(249, 246, 244, 0.58) 4.58%,
 			rgba(186, 152, 130, 0.3) 79.44%
 		),
 		url("../img/hero-bg.png");
+	background-position: center;
+	background-repeat: no-repeat;
 	height: 340px;
 	max-width: 1440px;
 	display: flex;
@@ -25,6 +28,8 @@
 		font-weight: 900;
 		text-align: center;
 		line-height: 2.5rem;
+		color: #fff;
+		text-shadow: 5px 2px #000;
 	}
 	button {
 		background-color: $red;

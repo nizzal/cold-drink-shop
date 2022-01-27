@@ -1,0 +1,21 @@
+.modal-wrapper {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(66, 66, 66, 0.9);
+	z-index: 100;
+	.modal-btn {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		z-index: 100;
+		i {
+			color: red;
+		}
+	}
+}

@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import "../styles/Cart.scss";
 import { CartContext } from "../context/CartContext";
-import Checkout from "../pages/Checkout";
+import Modal from "./Modal";
+// import Checkout from "../pages/Checkout";
 
 const Cart = () => {
 	const { cartValue } = useContext(CartContext);
@@ -109,8 +110,14 @@ const Cart = () => {
 					</p>
 					<button onClick={modalHandler}>Checkout</button>
 				</div>
-				{openModal && (
+				{/* {openModal && (
 					<Checkout setModal={setOpenModal} modal={openModal} />
+				)} */}
+				{openModal && (
+					<Modal
+						isModalOpen={openModal}
+						setModalOpen={setOpenModal}
+					/>
 				)}
 			</main>
 		</>
